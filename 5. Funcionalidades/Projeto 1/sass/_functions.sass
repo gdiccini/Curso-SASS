@@ -1,0 +1,38 @@
+@use 'sass:math'
+
+@function text-color($size)
+
+  $color: #000
+
+  @if $size > 20
+    $color: red
+  @else
+    $color: blue
+
+  @return $color
+
+@function custom-border-function($variation: 1)
+
+  $border: none
+  $var: 3
+
+  @if $variation > 3
+    // @error "Insira variações até o valor de 3"
+    @warn "Insira variações até o valor de #{$var}"
+
+  @if $variation == 1
+    $border: 1px solid red
+  @else if $variation == 2
+    $border: 2px solid green
+  @else
+    $border: 3px dotted black
+
+  @return $border
+
+@function custom-width($width: 200px, $division: 2)
+
+  $result: math.div($width, $division)
+
+  @debug "O valor da divisão é #{$result}"
+
+  @return $result
