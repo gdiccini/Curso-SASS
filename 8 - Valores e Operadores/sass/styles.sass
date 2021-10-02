@@ -1,0 +1,39 @@
+@use 'sass:map'
+
+$a: 10
+
+@debug $a
+@debug $a + 10px
+// @debug 10rem + 10px
+
+
+$str: "Roboto"
+$str2: Roboto
+
+@debug $str == $str2
+
+$fonte: "Open"
+$var1: "Sans"
+$var2: "Teste"
+
+@debug $fonte + " " + $var1
+@debug $fonte + " " + $var2
+
+$list: 10, 20, 30
+
+@each $font in $list
+  .p-#{$font}
+    font-size: $font+"px"
+
+@each $value in $list
+  @debug $value
+
+
+$font-weight: ("regular": 400, "bold": 700, "black": 900)
+
+h3
+  font-weight: map.get($font-weight, "black")
+
+@each $key, $value in $font-weight
+  .p-#{$key}
+    font-weight: $value
